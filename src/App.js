@@ -79,13 +79,17 @@ function ChatRoom() {
   const sendMessage = async (e) => {
     e.preventDefault();
 
-    const { uid, photoURL } = auth.currentUser;
-
+    const { uid, photoURL,displayName } = auth.currentUser;
+    // if(!displayName)
+    // {
+    //   displayName = "Anonymous";
+    // }
     await messagesRef.add({
       text: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       uid,
-      photoURL
+      photoURL,
+      displayName
     })
 
     setFormValue('');
@@ -103,9 +107,9 @@ function ChatRoom() {
 
     <form onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder=" type to talk.." />
 
-      <button type="submit" disabled={!formValue}>🕊️</button>
+      <button type="submit" disabled={!formValue}>Send</button>
 
     </form>
   </>)
@@ -113,13 +117,14 @@ function ChatRoom() {
 
 
 function ChatMessage(props) {
-  const { text, uid, photoURL } = props.message;
+  const { text, uid, photoURL,displayName } = props.message;
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
-
+  
   return (<>
     <div className={`message ${messageClass}`}>
-      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+      <img src={photoURL} />
+      <p id="name"> {displayName || "Human"}</p>
       <p>{text}</p>
     </div>
   </>)

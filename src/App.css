@@ -9,7 +9,7 @@ body {
 }
 
 .App header {
-  background-color: #181717;
+  background-color: #2d6aaad2;
   height: 10vh;
   min-height: 50px;
   color: white;
@@ -30,7 +30,20 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  background-color: rgb(40, 37, 53);
+  background-image: linear-gradient(
+  145deg,
+  hsl(240deg 100% 20%) 0%,
+  hsl(250deg 89% 17%) 24%,
+  hsl(257deg 76% 14%) 49%,
+  rgb(25, 10, 46) 72%,
+  hsl(281deg 37% 8%) 87%,
+  hsl(55deg 67% 4%) 95%,
+  hsl(268deg 43% 14%) 99%,
+  hsl(260deg 62% 23%) 100%,
+  hsl(256deg 74% 33%) 101%,
+  hsl(253deg 85% 42%) 101%,
+  hsl(251deg 100% 50%) 100%
+);
 }
 
 main {
@@ -70,6 +83,24 @@ form button {
   background-color: rgb(56, 56, 143);
 }
 
+#name{
+  position:relative;
+  /* align-self: flex-end; */
+  font-size: 10px;
+  height: 10px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  background-color: rgb(4, 57, 103);
+  /* margin-bottom: 12px; */
+  line-height: 24px;
+  padding: 10px 10px;
+  border-radius: 25px;
+  /* position: relative; */
+  color: white;
+  text-align: center;
+}
 
 input {
   line-height: 1.5;
@@ -80,6 +111,7 @@ input {
   outline: none;
   border: none;
   padding: 0 10px;
+  border-radius: 50px;
 }
 
 button {
@@ -92,6 +124,7 @@ button {
   display: inline-block;
   cursor: pointer;
   font-size: 1.25rem;
+  border-radius: 50px;
 }
 
 button:disabled {
@@ -105,6 +138,7 @@ button:disabled {
   background: white;
   max-width: 400px;
   margin: 0 auto;
+  border-radius: 15px;
 }
 
 
